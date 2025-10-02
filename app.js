@@ -22,7 +22,8 @@ const cliente = (function () {
 
 const evento = (function () {
   const datosEvento = {
-    fecha: "16 de noviembre de 2025",
+    fecha: "2025-11-16T21:00:00",
+    "fecha-texto": "16 de noviembre de 2025",
     dia: "Sabado",
     hora: "21:00 hs",
     tipo: "mis 15 años",
@@ -33,22 +34,46 @@ const evento = (function () {
     vestimenta: "codigoDeVestimenta",
   };
 
+  const datosTemporizador = () => {
+    const fechaEvento = new Date(datosEvento.fecha);
+    const fechaActual = new Date();
+
+    const tiempoFaltante = fechaEvento.getTime() - fechaActual.getTime();
+
+    const milisegundosPorSegundo = 1000;
+    const milisegundosPorMinuto = milisegundosPorSegundo * 60;
+    const milisegundosPorHora = milisegundosPorMinuto * 60;
+    const milisegundosPorDia = milisegundosPorHora * 24;
+
+    const dias = Math.floor(tiempoFaltante / milisegundosPorDia);
+    const horas = Math.floor(
+      (tiempoFaltante % milisegundosPorDia) / milisegundosPorHora
+    );
+    const minutos = Math.floor(
+      (tiempoFaltante % milisegundosPorHora) / milisegundosPorMinuto
+    );
+    const segundos = Math.floor(
+      (tiempoFaltante % milisegundosPorMinuto) / milisegundosPorSegundo
+    );
+    return { dias, horas, minutos, segundos };
+  };
+
   const getDatosEvento = () => {
     return datosEvento;
   };
 
-  return { getDatosEvento };
+  return { getDatosEvento, datosTemporizador };
 })();
 
 const controlador = (function () {
-  const obtenerFecha = () => {
-    console.log(evento.getDatosEvento().fecha)
-  };
+  return {};
+})();
 
-  return {obtenerFecha}
+
+const display = (function () {
+  return {};
 })();
 
 console.log(cliente.getDatosCliente());
 console.log(evento.getDatosEvento());
-
-controlador.obtenerFecha()
+console.log(evento.datosTemporizador());
