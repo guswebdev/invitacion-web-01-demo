@@ -37,6 +37,12 @@ img {
   margin: 0 auto;
 }
 
+.titulo-seccion {
+  text-align: center;
+  font-size: 2rem;
+  color: palevioletred;
+}
+
 /* --- HERO --- */
 .hero {
   width: 100%;
@@ -59,25 +65,106 @@ img {
 }
 
 .hero-textos {
-    min-height: 35vh;
-    color: palevioletred;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: .5rem;
-    text-align: center;
+  min-height: 35vh;
+  color: palevioletred;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
 }
 
 .hero-fecha {
-    font-weight: bold;
-    font-size: .75rem;
+  font-weight: bold;
+  font-size: 0.75rem;
 }
 
 .hero-nombre {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 .hero-evento {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 /* --- HERO --- */
+
+/* --- TEMPORIZADOR --- */
+.temporizador {
+  padding: 2rem 0;
+}
+
+.temporizador .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.temporizador-reloj {
+  padding: 1rem;
+  background-color: palevioletred;
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 10px 1fr);
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas:
+    "grid-dias puntos-1 grid-horas puntos-2 grid-minutos puntos-3 grid-segundos"
+    "grid-label-dia . grid-label-hora . grid-label-minuto . grid-label-segundo";
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  row-gap: 1rem;
+}
+
+.grid-dias {
+  grid-area: grid-dias;
+}
+.puntos-1 {
+  grid-area: puntos-1;
+}
+.grid-horas {
+  grid-area: grid-horas;
+}
+.puntos-2 {
+  grid-area: puntos-2;
+}
+.grid-minutos {
+  grid-area: grid-minutos;
+}
+.puntos-3 {
+  grid-area: puntos-3;
+}
+.grid-segundos {
+  grid-area: grid-segundos;
+}
+.grid-label-dia {
+  grid-area: grid-label-dia;
+}
+.grid-label-hora {
+  grid-area: grid-label-hora;
+}
+.grid-label-minuto {
+  grid-area: grid-label-minuto;
+}
+.grid-label-segundo {
+  grid-area: grid-label-segundo;
+}
+
+.reloj-unidad,
+.reloj-puntos {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.reloj-label {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.reloj-unidad span {
+  background-color: white;
+  padding: 0.25rem;
+  border-radius: 5px;
+  color: palevioletred;
+}
+/* --- TEMPORIZADOR --- */
